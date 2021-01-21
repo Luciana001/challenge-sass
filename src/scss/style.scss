@@ -1,0 +1,109 @@
+@import 'variables';
+
+@mixin box-shadow($params) {
+    -webkit-box-shadow: $params;
+       -moz-box-shadow: $params;
+            box-shadow: $params;
+  }
+body {
+    font: 100% "Space Mono", monospace;
+    color: $violet;
+    margin: 0;
+    padding: $padding;
+    background-color:$blanc;
+    overflow-x: hidden;
+}
+
+main {
+    padding: $padding-$padding $padding;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px $grisFonce solid;
+        @include box-shadow(10px 10px 15px -4px $violet);
+        
+        padding: $padding;
+        margin: $padding;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+        #selling-points {
+            flex-grow: 2;
+            flex-basis: 100%;
+        }
+    }
+    code {
+        background: $black;
+        border: 1px solid  $violet;
+        color: $grisFonce;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: $padding $padding;
+        display: block;
+        word-wrap: break-word;
+        .before {
+            float: left;
+            width: 40%;
+        }
+        .after {
+            float: right;
+            width: 40%;
+        }
+    }
+}
+
+h1, h2, h3 {
+    color: $pink;
+} 
+h1 h3 {
+        text-align: center;
+}
+h3{ font-size: 1.5em;
+    padding: $padding*2;
+    margin-bottom: 0px;
+}
+
+%message{
+   
+    border: 1px solid $grisFonce;
+    padding: $padding;
+    color: $blanc;
+    
+    
+}
+.messages {
+    padding: $padding;
+}
+   
+.success {
+     background-color: $green;
+    @extend %message;
+}
+    
+.error {
+    background-color: $red;
+    @extend %message;
+    &:hover{
+        background-color: $green;
+       
+    }
+}    
+    
+.warning {
+    background-color: $orange;
+    @extend %message;
+}    
+
+
+
+
